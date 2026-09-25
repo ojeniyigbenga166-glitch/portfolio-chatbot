@@ -1,0 +1,126 @@
+{
+  "profile": {
+    "name": "Olugbenga Ojeniyi",
+    "brand": "ARLTECH",
+    "title": "Full-Stack Web Developer & Designer",
+    "tagline": "I bridge the gap between Code and Capital.",
+    "description": "Full-stack web developer and designer focused on creating digital experiences that combine technical precision, modern design, performance, and business growth.",
+    "projects_delivered": "50+",
+    "happy_clients": "30+",
+    "years_of_experience": "5+"
+  },
+  "services": [
+    {
+      "title": "Web Design",
+      "description": "Custom-tailored designs that reflect a brand identity and engage its target audience. Every pixel is crafted with precision and purpose."
+    },
+    {
+      "title": "Frontend Development",
+      "description": "High-performance React applications with seamless user experiences, built with modern practices and optimized for speed."
+    },
+    {
+      "title": "Full-Stack Solutions",
+      "description": "Complete web applications from database to deployment with scalable, secure, and maintainable code architecture."
+    },
+    {
+      "title": "Performance Optimization",
+      "description": "Strategic optimization focused on transforming slow websites into faster experiences that improve user satisfaction and conversion."
+    },
+    {
+      "title": "E-Commerce Integration",
+      "description": "Online stores with checkout flows, integrated payments, inventory, and analytics systems."
+    }
+  ],
+  "skills": {
+    "frontend": [
+      "React.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Next.js",
+      "Vue.js"
+    ],
+    "backend": [
+      "Node.js",
+      "Express",
+      "PostgreSQL",
+      "MongoDB",
+      "Firebase"
+    ],
+    "tools": [
+      "Git",
+      "Docker",
+      "Figma",
+      "VS Code",
+      "AWS"
+    ],
+    "cms": [
+      "WordPress",
+      "Shopify",
+      "Wix",
+      "Webflow",
+      "Squarespace"
+    ]
+  },
+  "education": [
+    {
+      "degree": "Bachelor of Technology",
+      "field": "Physics Electronics",
+      "institution": "Federal University of Technology, Akure",
+      "year": 2018
+    },
+    {
+      "program": "Full Stack Web Development Bootcamp",
+      "field": "Web Development",
+      "institution": "Code Academy",
+      "year": 2017
+    }
+  ],
+  "certifications": [
+    "AWS Certified Developer",
+    "Google Cloud Professional",
+    "React Advanced",
+    "Node.js Mastery"
+  ],
+  "projects": [],
+  "experience": [],
+  "testimonials": [],
+  "contact": {
+    "email": "ojeniyigbenga166@gmail.com",
+    "whatsapp": "+2348147574404",
+    "location": "Futa Southgate, Akure, Nigeria",
+    "response_time": "24 hours"
+  },
+  "social_links": {
+    "whatsapp": "https://wa.me/2348147574404",
+    "twitter": "https://twitter.com/",
+    "linkedin": "https://linkedin.com/",
+    "github": "https://github.com/"
+  },
+  "availability": {
+    "status": "Open for projects",
+    "response_time": "Typically within 24 hours"
+  },
+  "call_to_action": {
+    "primary": "Start Your Project",
+    "secondary": "Let's Work Together",
+    "message": "Have a project in mind? Get in touch and let's create something amazing together."
+  },
+  "chatbot": {
+    "name": "ARLTECH AI Assistant",
+    "purpose": "Help visitors understand Olugbenga Ojeniyi's services, skills, experience, projects, and contact options.",
+    "tone": [
+      "professional",
+      "friendly",
+      "clear",
+      "helpful"
+    ],
+    "rules": [
+      "Only provide information supported by the portfolio knowledge.",
+      "Do not invent projects, clients, prices, certifications, or experience.",
+      "If information is unavailable, clearly say that it is not currently available.",
+      "Encourage visitors to contact Olugbenga when they want to discuss a project.",
+      "Do not claim to be Olugbenga.",
+      "Do not make promises about project timelines or pricing unless the information is provided."
+    ]
+  }
+}
