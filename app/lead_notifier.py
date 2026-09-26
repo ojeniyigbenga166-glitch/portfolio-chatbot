@@ -27,6 +27,11 @@ def send_lead_notification(lead_data: Dict[str, Any]) -> bool:
 
     try:
         payload = {
+            "name": name,
+            "email": email,
+            "service": service,
+            "message": message,
+            "_subject": f"🚀 New Chatbot Lead: {name} ({email})",
             "content": f"🚀 **New Lead Received for Olugbenga!**\n**Name:** {name}\n**Email:** {email}\n**Service:** {service}\n**Message:** {message}"
         }
         req = urllib.request.Request(
