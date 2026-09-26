@@ -1,4 +1,5 @@
 import os
+import re
 from fastapi import FastAPI, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
@@ -115,6 +116,17 @@ def chat(request: ChatRequest):
             status_code=status.HTTP_400_BAD_REQUEST,
             detail="Message cannot be empty.",
         )
+
+    # 1b. Auto-detect if user message contains an email address to capture leads automatically
+    email_match = re.search(r"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}", user_message)
+    if email_match:
+        extracted_email = email_match.group(0)
+        send_lead_notification({
+            "name": "Chat Visitor",
+            "email": extracted_email,
+            "message": user_message,
+            "service": "Automated Chat Lead",
+        })
 
     # 2. Get Gemini Client
     client = get_gemini_client()

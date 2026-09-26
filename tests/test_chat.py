@@ -52,3 +52,14 @@ def test_lead_capture_validation():
     assert response.status_code == 400
     assert "required" in response.json()["detail"]
 
+
+def test_chat_auto_lead_extraction():
+    response = client.post(
+        "/chat",
+        json={"message": "Hi, my email is client@domain.com and I want to hire Olugbenga for a web project"}
+    )
+    assert response.status_code == 200
+    data = response.json()
+    assert "reply" in data
+
+
