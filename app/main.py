@@ -31,12 +31,27 @@ app.add_middleware(
 )
 
 
+from app.lead_notifier import send_lead_notification
+
+
 class ChatRequest(BaseModel):
     message: str = Field(..., description="User message prompt")
 
 
 class ChatResponse(BaseModel):
     reply: str
+
+
+class LeadRequest(BaseModel):
+    name: str = Field(..., description="Client name")
+    email: str = Field(..., description="Client contact email")
+    message: str | None = Field(default="", description="Project description or notes")
+    service: str | None = Field(default="General Inquiry", description="Service interested in")
+
+
+class LeadResponse(BaseModel):
+    status: str
+    message: str
 
 
 @app.get("/")
@@ -46,7 +61,8 @@ def root():
         "message": "Portfolio AI Chatbot API is running successfully!",
         "endpoints": {
             "health": "/health",
-            "chat": "POST /chat (Requires JSON body: {\"message\": \"your question\"})"
+            "chat": "POST /chat (Requires JSON body: {\"message\": \"your question\"})",
+            "lead": "POST /lead (Requires JSON body: {\"name\": \"...\", \"email\": \"...\"})"
         }
     }
 
@@ -55,6 +71,34 @@ def root():
 def health_check():
     """Health check endpoint to verify backend service status."""
     return {"status": "ok"}
+
+
+@app.post("/lead", response_model=LeadResponse)
+def submit_lead(request: LeadRequest):
+    """
+    POST /lead endpoint to capture prospective client contact details.
+    """
+    name = request.name.strip() if request.name else ""
+    email = request.email.strip() if request.email else ""
+
+    if not name or not email or "@" not in email:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="A valid name and email address are required.",
+        )
+
+    send_lead_notification({
+        "name": name,
+        "email": email,
+        "message": request.message.strip() if request.message else "",
+        "service": request.service.strip() if request.service else "General Inquiry",
+    })
+
+    return LeadResponse(
+        status="success",
+        message="Thank you! Your information has been received. Olugbenga will get back to you shortly."
+    )
+
 
 
 

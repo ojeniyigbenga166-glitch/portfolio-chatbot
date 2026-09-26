@@ -26,3 +26,29 @@ def test_chat_portfolio_question():
     assert "reply" in data
     reply = data["reply"].lower()
     assert any(term in reply for term in ["web design", "frontend", "full-stack", "arltech", "olugbenga"])
+
+
+def test_lead_capture_success():
+    response = client.post(
+        "/lead",
+        json={
+            "name": "Alex Smith",
+            "email": "alex@example.com",
+            "message": "Looking for web development services",
+            "service": "Web Development"
+        }
+    )
+    assert response.status_code == 200
+    data = response.json()
+    assert data["status"] == "success"
+    assert "Thank you" in data["message"]
+
+
+def test_lead_capture_validation():
+    response = client.post(
+        "/lead",
+        json={"name": "", "email": "invalid-email"}
+    )
+    assert response.status_code == 400
+    assert "required" in response.json()["detail"]
+
