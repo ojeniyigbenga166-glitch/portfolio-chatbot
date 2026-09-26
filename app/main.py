@@ -39,10 +39,23 @@ class ChatResponse(BaseModel):
     reply: str
 
 
+@app.get("/")
+def root():
+    """Root endpoint welcoming visitors and listing available endpoints."""
+    return {
+        "message": "Portfolio AI Chatbot API is running successfully!",
+        "endpoints": {
+            "health": "/health",
+            "chat": "POST /chat (Requires JSON body: {\"message\": \"your question\"})"
+        }
+    }
+
+
 @app.get("/health")
 def health_check():
     """Health check endpoint to verify backend service status."""
     return {"status": "ok"}
+
 
 
 @app.post("/chat", response_model=ChatResponse)
